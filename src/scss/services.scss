@@ -21,7 +21,7 @@
       position: absolute;
       top: 19px;
       left: -155px;
-      background-image: url('/src/img/services/decoration-shape-left.png');
+      background-image: url('/src/img/decoration-shape-left.png');
     }
 
     &::after {
@@ -31,7 +31,7 @@
       position: absolute;
       top: 19px;
       right: -160px;
-      background-image: url('/src/img/services/decoration-shape-right.png');
+      background-image: url('/src/img/decoration-shape-right.png');
     }
   }
 
@@ -47,7 +47,7 @@
     justify-content: center;
 
     .card {
-      width: calc(100% / 4 - 15px);
+      width: calc(100% / 4);
       height: auto;
       margin: 0 15px;
 
