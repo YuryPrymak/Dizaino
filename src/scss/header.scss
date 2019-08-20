@@ -1,5 +1,3 @@
-@import 'src/scss/partials/_fonts';
-
 .header {
   width: 100%;
   height: 100vh;
@@ -96,7 +94,7 @@
       position: absolute;
       top: -15px;
       left: 0;
-      background-image: url('/src/img/shape-white.png');
+      background-image: url('/src/img/decoration-shape-border-white.png');
       background-position: center;
     }
   }
