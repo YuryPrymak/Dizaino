@@ -3,3 +3,4 @@ import './scss/header.scss';
 import './scss/services.scss';
 import './scss/portfolio.scss';
 import './scss/about.scss';
+import './scss/info.scss';
