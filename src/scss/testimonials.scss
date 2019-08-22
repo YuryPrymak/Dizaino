@@ -1,0 +1,107 @@
+.testimonials {
+  width: 100%;
+  background-color: rgb(93, 189, 177);
+}
+
+.testimonials-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 75px 15px;
+
+  .title {
+    max-width: 600px;
+    margin: 0 auto;
+    color: rgb(255, 255, 255);
+    font-size: 48px;
+    font-family: 'Pavanam', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .quotes {
+    width: 50px;
+    position: relative;
+    margin: -15px auto 0 auto;
+    color: rgb(255, 255, 255);
+    font-size: 90px;
+    text-align: center;
+
+    &::before {
+      content: '';
+      width: 108px;
+      height: 3px;
+      position: absolute;
+      top: 32px;
+      left: -115px;
+      background-image: url('/src/img/decoration-shape-border-white.png');
+    }
+
+    &::after {
+      content: '';
+      width: 108px;
+      height: 3px;
+      position: absolute;
+      top: 32px;
+      right: -115px;
+      background-image: url('/src/img/decoration-shape-border-white.png');
+    }
+  }
+
+  .description {
+    max-width: 800px;
+    margin: -40px auto 20px auto;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+  }
+
+  .slogan {
+    max-width: 400px;
+    margin: 0 auto;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+  }
+
+  .btn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      svg {
+        fill: rgba(255, 255, 255, 1);
+      }
+    }
+
+    svg {
+      fill: rgba(255, 255, 255, 0.7);
+
+      -webkit-transition: fill .2s ease-in-out;
+      -moz-transition: fill .2s ease-in-out;
+      -ms-transition: fill .2s ease-in-out;
+      -o-transition: fill .2s ease-in-out;
+      transition: fill .2s ease-in-out;
+    }
+  }
+
+  .btn-left {
+    top: calc(50% - 25px);
+    left: 15px;
+  }
+
+  .btn-right {
+    top: calc(50% - 25px);
+    right: 15px;
+  }
+}

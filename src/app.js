@@ -5,3 +5,4 @@ import './scss/portfolio.scss';
 import './scss/about.scss';
 import './scss/info.scss';
 import './scss/our-team.scss';
+import './scss/testimonials.scss';
