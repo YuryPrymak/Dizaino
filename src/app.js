@@ -7,3 +7,4 @@ import './scss/info.scss';
 import './scss/our-team.scss';
 import './scss/testimonials.scss';
 import './scss/contacts.scss';
+import './scss/footer.scss';

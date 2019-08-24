@@ -14,7 +14,7 @@
   align-items: center;
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 50px 15px 150px 15px;
+  padding: 50px 15px 250px 15px;
 
   .phone-num,
   h2 {
@@ -126,6 +126,7 @@
       font-weight: bold;
       text-transform: uppercase;
       text-align: center;
+      cursor: pointer;
     }
   }
 }
