@@ -3,10 +3,13 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
+  min-width: 320px;
   position: relative;
+  color: rgb(255, 255, 255);
 }
 
 // one gradient for two sections: portfolio and about

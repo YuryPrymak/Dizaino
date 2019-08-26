@@ -15,5 +15,6 @@
         "sourceType": "module"
     },
     "rules": {
+        "wrap-iife": [2, "inside"]
     }
 }

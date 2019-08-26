@@ -8,26 +8,33 @@
   <link rel="stylesheet" href="dist/main.css">
 </head>
 <body>
-  <header class="header">
-    <span class="greeting">Welcome to</span>
-    <hr>
-    <h1>Dizaino</h1>
-    <span class="description">Creative design</span>
+  <header class="header" id="header">
+    <p class="greeting">Welcome to</p>
+    <h1 class="title">Dizaino</h1>
+    <p class="description">Creative design</p>
     <button class="btn-scroll-down"></button>
+    <button class="btn-mobile-menu-toggle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20">
+        <path d="M17.5 6h-15c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h15c0.276 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5z"></path>
+        <path d="M17.5 11h-15c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h15c0.276 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5z"></path>
+        <path d="M17.5 16h-15c-0.276 0-0.5-0.224-0.5-0.5s0.224-0.5 0.5-0.5h15c0.276 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5z"></path>
+      </svg>
+    </button>
     <nav class="nav">
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Client & Testimonial</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#header">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#our-team">Our team</a></li>
+        <li><a href="#testimonials">Client testimonials</a></li>
+        <li><a href="#contacts">Contacts</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section class="services">
+    <section class="services" id="services">
       <h2>Our services</h2>
       <span class="description">Proin sed odio et ante adipiscing lobortis.</span>
       <div class="cards">
@@ -73,7 +80,7 @@
       </div>
     </section>
     <div class="bg-gradient-wrapper"> <!-- one gradient for two sections -->
-      <section class="portfolio">
+      <section class="portfolio" id="portfolio">
         <div class="portfolio-wrapper">
           <h2 class="title">Awesome portfolio</h2>
           <ul class="category">
@@ -111,7 +118,7 @@
           </div>
         </div>
       </section>
-      <section class="about">
+      <section class="about" id="about">
         <div class="about-us">
           <h2 class="title">About us</h2>
           <figure>
@@ -178,7 +185,7 @@
       <p class="description">Proin sed odio et ante adipiscing lobortis.</p>
       <img src="/src/img/decoration-shape-info.png" alt="Decor">
     </section>
-    <section class="our-team">
+    <section class="our-team" id="our-team">
       <div class="our-team-wrapper">
         <h2 class="title">our team</h2>
         <p class="description">
@@ -348,7 +355,7 @@
         </div>
       </div>
     </section>
-    <section class="testimonials">
+    <section class="testimonials" id="testimonials">
       <div class="testimonials-wrapper">
         <button class="btn btn-left">
           <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -373,7 +380,7 @@
         </button>
       </div>
     </section>
-    <section class="contacts">
+    <section class="contacts" id="contacts">
       <div class="contacts-wrapper">
         <a href="tel:1-234-555-6677" class="phone-num">
           <h2>Call as +1 234 555 6677</h2>
