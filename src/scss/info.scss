@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 75px 0;
+  padding: 75px 15px;
   background-image: url('/src/img/info-bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -12,7 +12,6 @@
 
   .title {
     max-width: 800px;
-    color: rgb(255, 255, 255);
     font-size: 48px;
     font-family: 'Pavanam', sans-serif;
     text-transform: uppercase;
@@ -20,11 +19,20 @@
   }
 
   .description {
+    position: relative;
     max-width: 800px;
-    margin-bottom: 40px;
-    color: rgb(255, 255, 255);
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
+
+    &::after {
+      content: '';
+      width: 230px;
+      height: 7px;
+      position: absolute;
+      left: calc(50% - 115px);
+      bottom: -40px;
+      background-image: url('/src/img/decoration-shape-info.png');
+    }
   }
 }

@@ -1,3 +1,5 @@
+@import 'src/scss/partials/_media-queries';
+
 .footer {
   width: 100%;
   height: 100px;
@@ -6,29 +8,35 @@
 }
 
 .footer-wrapper {
-  width: 100%;
-  max-width: 870px;
+  max-width: 1200px;
   position: relative;
-  box-sizing: border-box;
   margin: 0 auto;
   padding: 0 15px;
   
   .description {
-    margin-bottom: 25px;
-    color: rgb(255, 255, 255);
+    max-width: 800px;
+    margin: 0 auto 25px auto;
     font-size: 13px;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
     text-transform: uppercase;
+
+    @include media-md {
+      font-size: 16px;
+    }
+
+    @include media-xs {
+      font-size: 18px;
+    }
     
     &::before {
       content: '';
-      width: 100%;
+      width: calc(100% - 30px);
       height: 3px;
       display: block;
       position: absolute;
       top: -25px;
-      left: 0;
+      left: 15px;
       background-image: url('/src/img/decoration-shape-border-white.png');
       background-position: center;
     }

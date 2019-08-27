@@ -1,3 +1,5 @@
+@import 'src/scss/partials/_media-queries';
+
 .contacts {
   width: 100%;
   background-image: url('/src/img/contact-bg.jpg');
@@ -7,29 +9,49 @@
 }
 
 .contacts-wrapper {
-  max-width: 800px;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
   margin: 0 auto;
   padding: 50px 15px 250px 15px;
 
-  .phone-num,
-  h2 {
-    color: rgb(231, 97, 34);
-    font-size: 48px;
-    font-family: 'Pavanam', sans-serif;
-    font-weight: normal;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: none;
+  .phone {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .title,
+    .phone-num {
+      color: rgb(231, 97, 34);
+      font-size: 48px;
+      font-family: 'Pavanam', sans-serif;
+      font-weight: normal;
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .title {
+      @include media-sm {
+        width: 100%;
+      }
+    }
+
+    .phone-num {
+      margin-left: 10px;
+
+      @include media-sm {
+        margin-left: 0;
+        font-size: 36px;
+      }
+    }
   }
 
   .address {
+    max-width: 800px;
     margin-bottom: 20px;
-    color: rgb(255, 255, 255);
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
@@ -58,6 +80,7 @@
   }
 
   .title {
+    max-width: 800px;
     margin-bottom: 10px;
     color: rgb(231, 97, 34);
     font-size: 30px;
@@ -68,22 +91,40 @@
   }
 
   .description {
+    max-width: 800px;
     margin-bottom: 10px;
-    color: rgb(255, 255, 255);
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
     text-align: center;
+
+    @include media-md {
+      font-size: 16px;
+    }
+
+    @include media-xs {
+      font-size: 18px;
+    }
   }
 
   form {
     width: 100%;
     display: flex;
+    justify-content: center;
     position: relative;
+
+    @include media-md {
+      flex-wrap: wrap;
+    }
 
     .user-data {
       width: 370px;
       margin-right: 30px;
+
+      @include media-md {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
 
       input {
         width: 100%;
@@ -104,7 +145,6 @@
     #user-message {
       width: 370px;
       height: 175px;
-      box-sizing: border-box;
       padding: 5px 10px;
       border: none;
       border-radius: 3px;
@@ -122,6 +162,7 @@
       border-radius: 5px;
       background-color: rgb(93, 189, 177);
       color: rgb(255, 255, 255);
+      font-size: 16px;
       font-family: 'Open Sans', sans-serif;
       font-weight: bold;
       text-transform: uppercase;

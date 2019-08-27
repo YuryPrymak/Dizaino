@@ -1,17 +1,21 @@
+@import 'src/scss/partials/_media-queries';
+
 .services {
-  max-width: 1170px;
-  height: auto;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 50px 15px;
+  overflow: hidden;
 
-  h2 {
+  > .title {
+    max-width: 800px;
     position: relative;
     font-size: 48px;
     font-family: 'Pavanam', sans-serif;
     color: rgb(34, 34, 34);
+    text-align: center;
     text-transform: uppercase;
 
     &::before {
@@ -22,6 +26,10 @@
       top: 19px;
       left: -155px;
       background-image: url('/src/img/decoration-shape-left.png');
+
+      @include media-xs {
+        display: none;
+      }
     }
 
     &::after {
@@ -32,30 +40,58 @@
       top: 19px;
       right: -160px;
       background-image: url('/src/img/decoration-shape-right.png');
+
+      @include media-xs {
+        display: none;
+      }
     }
   }
 
   > .description {
+    max-width: 800px;
+    margin-bottom: 40px;
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
     color: rgb(153, 153, 153);
+    text-align: center;
+
+    @include media-xs {
+      font-size: 24px;
+    }
   }
 
   .cards {
-    width: 100%;
+    max-width: 1200px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    margin: 0 -15px;
 
     .card {
-      width: calc(100% / 4);
-      height: auto;
-      margin: 0 15px;
+      width: calc(100% / 3 - 30px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 15px 30px 15px;
+
+      @include media-lg {
+        width: calc(100% / 2 - 30px);
+      }
+
+      @include media-sm {
+        width: 100%;
+      }
 
       .img-wrapper {
         width: 70%;
         position: relative;
-        margin: 40px auto;
+        margin-bottom: 40px;
         padding-top: 70%;
+
+        @include media-xs {
+          width: 90%;
+          padding-top: 90%;
+        }
 
         img {
           width: 100%;
@@ -68,32 +104,47 @@
         }
       }
 
-      .title {
-        position: relative;
-        margin-bottom: 30px;
-        font-size: 30px;
-        font-family: 'Pavanam', sans-serif;
-        color: rgb(31, 60, 64);
-        text-transform: uppercase;
-        text-align: center;
+      figcaption {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
 
-        &::after {
-          content: '';
-          width: 70%;
-          height: 3px;
-          position: absolute;
-          top: 45px;
-          left: 15%;
-          background-image: url('/src/img/decoration-shape-border-grey.png');
-          background-position: center;
+        .title {
+          position: relative;
+          margin-bottom: 30px;
+          color: rgb(31, 60, 64);
+          font-size: 30px;
+          font-family: 'Pavanam', sans-serif;
+          text-transform: uppercase;
+          text-align: center;
+  
+          &::after {
+            content: '';
+            width: 70%;
+            height: 3px;
+            position: absolute;
+            bottom: -10px;
+            left: 15%;
+            background-image: url('/src/img/decoration-shape-border-grey.png');
+            background-position: center;
+          }
         }
-      }
+  
+        .description {
+          color: rgb(102, 102, 102);
+          font-size: 14px;
+          font-family: 'Open Sans', sans-serif;
+          text-align: center;
 
-      .description {
-        font-size: 14px;
-        font-family: 'Open Sans', sans-serif;
-        color: rgb(102, 102, 102);
-        text-align: center;
+          @include media-md {
+            font-size: 16px;
+          }
+
+          @include media-xs {
+            font-size: 18px;
+          }
+        }
       }
     }
   }

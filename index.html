@@ -35,8 +35,8 @@
 
   <main>
     <section class="services" id="services">
-      <h2>Our services</h2>
-      <span class="description">Proin sed odio et ante adipiscing lobortis.</span>
+      <h2 class="title">Our services</h2>
+      <p class="description">Proin sed odio et ante adipiscing lobortis.</p>
       <div class="cards">
         <figure class="card">
           <div class="img-wrapper">
@@ -79,45 +79,45 @@
         </figure>
       </div>
     </section>
+
     <div class="bg-gradient-wrapper"> <!-- one gradient for two sections -->
       <section class="portfolio" id="portfolio">
-        <div class="portfolio-wrapper">
-          <h2 class="title">Awesome portfolio</h2>
-          <ul class="category">
-            <li><button>All</button></li>
-            <li><button>Website</button></li>
-            <li><button>Logo</button></li>
-            <li><button>Photography</button></li>
-            <li><button>Product design</button></li>
+        <h2 class="title">Portfolio</h2>
+        <ul class="category">
+          <li><button>All</button></li>
+          <li><button>Website</button></li>
+          <li><button>Logo</button></li>
+          <li><button>Photography</button></li>
+          <li><button>Product design</button></li>
+        </ul>
+        <div class="gallery">
+          <button class="btn btn-left">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <path 
+                d="M16,32c8.836,0,16-7.164,16-15.998C32,7.164,24.836,0,16,0S0,7.164,0,16.002   C0,24.836,7.164,32,16,32z M15.969,8v6.002H24V18h-8.031v5.969L8,16.002L15.969,8z"
+              />
+            </svg>
+          </button>
+          <ul class="list-of-previews">
+            <li><img src="/src/img/portfolio/portfolio-1.png" alt="Website"></li>
+            <li><img src="/src/img/portfolio/portfolio-2.png" alt="Logo"></li>
+            <li><img src="/src/img/portfolio/portfolio-3.jpg" alt="City"></li>
+            <li><img src="/src/img/portfolio/portfolio-4.png" alt="Logo"></li>
+            <li><img src="/src/img/portfolio/portfolio-5.png" alt="Design"></li>
+            <li><img src="/src/img/portfolio/portfolio-6.jpg" alt="Website"></li>
+            <li><img src="/src/img/portfolio/portfolio-7.jpg" alt="Design"></li>
+            <li><img src="/src/img/portfolio/portfolio-8.jpg" alt="Cosmos"></li>
           </ul>
-          <div class="slider">
-            <button class="btn btn-left">
-              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <path 
-                  d="M16,32c8.836,0,16-7.164,16-15.998C32,7.164,24.836,0,16,0S0,7.164,0,16.002   C0,24.836,7.164,32,16,32z M15.969,8v6.002H24V18h-8.031v5.969L8,16.002L15.969,8z"
-                />
-              </svg>
-            </button>
-            <ul class="list-of-previews">
-              <li><img src="/src/img/portfolio/portfolio-1.png" alt="Website"></li>
-              <li><img src="/src/img/portfolio/portfolio-2.png" alt="Logo"></li>
-              <li><img src="/src/img/portfolio/portfolio-3.jpg" alt="City"></li>
-              <li><img src="/src/img/portfolio/portfolio-4.png" alt="Logo"></li>
-              <li><img src="/src/img/portfolio/portfolio-5.png" alt="Design"></li>
-              <li><img src="/src/img/portfolio/portfolio-6.jpg" alt="Website"></li>
-              <li><img src="/src/img/portfolio/portfolio-7.jpg" alt="Design"></li>
-              <li><img src="/src/img/portfolio/portfolio-8.jpg" alt="Cosmos"></li>
-            </ul>
-            <button class="btn btn-right">
-              <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <path 
-                  d="M16,0C7.164,0,0,7.164,0,16s7.164,16,16,16s16-7.164,16-16S24.836,0,16,0z M16.031,24v-6H8v-4h8.031   V8.031L24,16L16.031,24z"
-                />
-              </svg>
-            </button>
-          </div>
+          <button class="btn btn-right">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <path 
+                d="M16,0C7.164,0,0,7.164,0,16s7.164,16,16,16s16-7.164,16-16S24.836,0,16,0z M16.031,24v-6H8v-4h8.031   V8.031L24,16L16.031,24z"
+              />
+            </svg>
+          </button>
         </div>
       </section>
+
       <section class="about" id="about">
         <div class="about-us">
           <h2 class="title">About us</h2>
@@ -135,7 +135,7 @@
               </p>
             </figcaption>
           </figure>
-          <button>Learn more</button>
+          <a href="#" target="_blank" class="btn-learn-more">Learn more</a>
         </div>
         <div class="our-advantages">
           <h2 class="title">Why choose us?</h2>
@@ -143,48 +143,49 @@
             <li>
               <figure>
                 <img src="/src/img/about/clock.jpg" alt="Clock">
-                <figcapture>
+                <figcaption>
                   <h3 class="title">Curabitur nec massa</h3>
                   <p class="description">
                     Lorem ipsum dolor sit amet, consectetue elit. Quisque 
                     eleLorem ipsum dolor sit amet, consectetuer adipiscing elit. 
                   </p>
-                </figcapture>
+                </figcaption>
               </figure>
             </li>
             <li>
               <figure>
                 <img src="/src/img/about/gold.jpg" alt="Gold">
-                <figcapture>
+                <figcaption>
                   <h3 class="title">Proin semper</h3>
                   <p class="description">
                     Lorem ipsum dolor sit amet, consectetue elit. Quisque 
                     eleLorem ipsum dolor sit amet, consectetuer adipiscing elit. 
                   </p>
-                </figcapture>
+                </figcaption>
               </figure>
             </li>
             <li>
               <figure>
                 <img src="/src/img/about/analytics.jpg" alt="Analytics">
-                <figcapture>
+                <figcaption>
                   <h3 class="title">Donec nibh leo</h3>
                   <p class="description">
                     Lorem ipsum dolor sit amet, consectetue elit. Quisque 
                     eleLorem ipsum dolor sit amet, consectetuer adipiscing elit. 
                   </p>
-                </figcapture>
+                </figcaption>
               </figure>
             </li>
           </ul>
         </div>
       </section>
     </div>
+
     <section class="info">
       <h2 class="title">Lorem ipsum dolor sit amet</h2>
       <p class="description">Proin sed odio et ante adipiscing lobortis.</p>
-      <img src="/src/img/decoration-shape-info.png" alt="Decor">
     </section>
+
     <section class="our-team" id="our-team">
       <div class="our-team-wrapper">
         <h2 class="title">our team</h2>
@@ -355,6 +356,7 @@
         </div>
       </div>
     </section>
+
     <section class="testimonials" id="testimonials">
       <div class="testimonials-wrapper">
         <button class="btn btn-left">
@@ -380,11 +382,13 @@
         </button>
       </div>
     </section>
+    
     <section class="contacts" id="contacts">
-      <div class="contacts-wrapper">
-        <a href="tel:1-234-555-6677" class="phone-num">
-          <h2>Call as +1 234 555 6677</h2>
-        </a>
+      <div class="contacts-wrapper"> 
+        <div class="phone">
+          <h2 class="title">Call as</h2>
+          <a href="tel:1-234-555-6677" class="phone-num">+1 234 555 6677</a>
+        </div>
         <p class="address">27 Ba Trieu St. Hue city, Viet Nam</p>
         <ul class="social">
           <li>
@@ -434,6 +438,7 @@
       <button class="btn-scroll-top"></button>
     </div>
   </footer>
+
   <script src="dist/main.js"></script>
 </body>
 </html>

@@ -1,23 +1,23 @@
-.portfolio {
-  width: 100%;
-}
+@import 'src/scss/partials/_media-queries';
 
-.portfolio-wrapper {
+.portfolio {
   max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
   margin: 0 auto;
   padding: 50px 15px;
+  overflow: hidden;
 
   .title {
+    max-width: 800px;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
+    color: rgb(51, 51, 51);
     font-size: 48px;
     font-family: 'Pavanam', sans-serif;
-    color: rgb(51, 51, 51);
     text-transform: uppercase;
+    text-align: center;
 
     &::before {
       content: '';
@@ -27,6 +27,10 @@
       top: 19px;
       left: -155px;
       background-image: url('/src/img/decoration-shape-left.png');
+
+      @include media-xs {
+        display: none;
+      }
     }
 
     &::after {
@@ -37,14 +41,21 @@
       top: 19px;
       right: -160px;
       background-image: url('/src/img/decoration-shape-right.png');
+
+      @include media-xs {
+        display: none;
+      }
     }
   }
 
   .category {
-    list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
 
     button {
+      margin: 5px;
       padding: 15px 25px;
       border: none;
       border-radius: 3px;
@@ -60,6 +71,10 @@
       -o-transition: all .2s ease-in-out;
       transition: all .2s ease-in-out;
 
+      @include media-md {
+        font-size: 18px;
+      }
+
       &:hover {
         background-color: rgb(242, 182, 62);
         color: rgb(255, 255, 255);
@@ -67,12 +82,16 @@
     }
   }
 
-  .slider {
+  .gallery {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+
+    @include media-xs {
+      padding-bottom: 5px;
+    }
 
     .btn {
       width: 50px;
@@ -83,6 +102,11 @@
       background-color: rgb(255, 255, 255);
       overflow: hidden;
       cursor: pointer;
+
+      @include media-xs {
+        width: 40px;
+        height: 40px;
+      }
   
       svg {
         fill: rgb(93, 189, 177);
@@ -98,28 +122,69 @@
     .btn-left {
       top: calc(50% - 25px);
       left: 0;
+
+      @include media-xs {
+        top: auto;
+        bottom: -40px; 
+        left: calc(50% - 45px);
+      }
     }
   
     .btn-right {
       top: calc(50% - 25px);
       right: 0;
+
+      @include media-xs {
+        top: auto;
+        bottom: -40px;
+        right: calc(50% - 45px);
+      }
     }
 
     .list-of-previews {
-      width: 100%;
-      max-width: 990px;
+      width: calc(100% - 120px);
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      margin: 0 20px;
       list-style-type: none;
 
+      @include media-xs {
+        width: 100%;
+      }
+
       li {
-        width: calc(100% / 4 - 20px);
+        width: calc(100% / 4 - 10px);
         position: relative;
-        margin: 10px;
-        padding-top: calc(100% / 4 - 20px);
+        margin: 5px;
+        padding-top: calc(100% / 4 - 10px);
         cursor: pointer;
+
+        @include media-lg {
+          width: calc(100% / 3 - 10px);
+          padding-top: calc(100% / 3 - 10px);
+
+          &:nth-child(n+7) {
+            display: none;
+          }
+        }
+
+        @include media-md {
+          width: calc(100% / 2 - 10px);
+          padding-top: calc(100% / 2 - 10px);
+
+          &:nth-child(n+5) {
+            display: none;
+          }
+        }
+
+        @include media-xs {
+          width: 100%;
+          margin: 0;
+          padding-top: 100%;
+
+          &:not(:first-child) {
+            display: none;
+          }
+        }
 
         img {
           width: 100%;

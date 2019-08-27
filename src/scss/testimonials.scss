@@ -1,31 +1,37 @@
+@import 'src/scss/partials/_media-queries';
+
 .testimonials {
   width: 100%;
   background-color: rgb(93, 189, 177);
 }
 
 .testimonials-wrapper {
-  width: 100%;
   max-width: 1200px;
   position: relative;
-  box-sizing: border-box;
   margin: 0 auto;
-  padding: 75px 15px;
+  padding: 50px 80px;
+
+  @include media-xs {
+    padding: 50px 15px 80px 15px;
+  }
 
   .title {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
-    color: rgb(255, 255, 255);
     font-size: 48px;
     font-family: 'Pavanam', sans-serif;
     text-transform: uppercase;
     text-align: center;
+
+    @include media-xs {
+      font-size: 44px;
+    }
   }
 
   .quotes {
     width: 50px;
     position: relative;
     margin: -15px auto 0 auto;
-    color: rgb(255, 255, 255);
     font-size: 90px;
     text-align: center;
 
@@ -53,19 +59,29 @@
   .description {
     max-width: 800px;
     margin: -40px auto 20px auto;
-    color: rgb(255, 255, 255);
     font-size: 18px;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
+
+    @include media-xs {
+      font-size: 26px;
+    }
   }
 
   .slogan {
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
-    color: rgb(255, 255, 255);
     font-size: 13px;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
+
+    @include media-md {
+      font-size: 16px;
+    }
+
+    @include media-xs {
+      font-size: 18px;
+    }
   }
 
   .btn {
@@ -77,6 +93,11 @@
     background-color: transparent;
     overflow: hidden;
     cursor: pointer;
+
+    @include media-xs {
+      width: 40px;
+      height: 40px;
+    }
 
     &:hover {
       svg {
@@ -98,10 +119,22 @@
   .btn-left {
     top: calc(50% - 25px);
     left: 15px;
+
+    @include media-xs {
+      top: auto;
+      bottom: 15px; 
+      left: calc(50% - 45px);
+    }
   }
 
   .btn-right {
     top: calc(50% - 25px);
     right: 15px;
+
+    @include media-xs {
+      top: auto;
+      bottom: 15px; 
+      right: calc(50% - 45px);
+    }
   }
 }

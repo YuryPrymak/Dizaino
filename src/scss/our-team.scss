@@ -1,17 +1,21 @@
+@import 'src/scss/partials/_media-queries';
+
 .our-team {
   width: 100%;
   background-color: #f0f0f0;
 }
 
 .our-team-wrapper {
-  max-width: 970px;
-  margin: 0 auto;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 15px;
+  margin: 0 auto;
+  padding: 50px 15px 30px 15px;
+  overflow: hidden;
 
   > .title {
+    max-width: 800px;
     position: relative;
     margin-bottom: 10px;
     color: rgb(51, 51, 51);
@@ -28,6 +32,10 @@
       top: 19px;
       left: -155px;
       background-image: url('/src/img/decoration-shape-left.png');
+
+      @include media-xs {
+        display: none;
+      }
     }
 
     &::after {
@@ -38,10 +46,15 @@
       top: 19px;
       right: -160px;
       background-image: url('/src/img/decoration-shape-right.png');
+
+      @include media-xs {
+        display: none;
+      }
     }
   }
 
   > .description {
+    max-width: 800px;
     margin-bottom: 50px;
     color: rgb(102, 102, 102);
     font-size: 18px;
@@ -50,18 +63,44 @@
   }
 
   .cards {
-    width: 100%;
+    max-width: 1200px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 -15px;
+    align-self: stretch;
 
     .card {
-      width: calc(100% / 3 - 30px);
+      width: calc(100% / 3.5 - 30px);
+      margin: 0 15px 30px 15px;
+
+      @include media-lg {
+        width: calc(100% / 3 - 30px);
+      }
+
+      @include media-md {
+        width: calc(100% / 2 - 30px);
+      }
+
+      @include media-sm {
+        width: calc(100% / 1 - 30px);
+      }
 
       .img-wrapper {
         width: 100%;
         position: relative;
-        margin-bottom: 20px;
+        margin: 0 auto 20px auto;
         padding-top: 100%;
+
+        @include media-sm {
+          width: 70%;
+          padding-top: 70%;
+        }
+
+        @include media-xs {
+          width: 100%;
+          padding-top: 100%;
+        }
 
         img {
           width: 100%;
@@ -82,6 +121,14 @@
         font-weight: bold;
         text-transform: uppercase;
         text-align: center;
+
+        @include media-md {
+          font-size: 18px;
+        }
+
+        @include media-xs {
+          font-size: 26px;
+        }
       }
 
       .description {
@@ -91,6 +138,14 @@
         font-family: 'Open Sans', sans-serif;
         font-style: italic;
         text-align: center;
+
+        @include media-md {
+          font-size: 16px;
+        }
+
+        @include media-xs {
+          font-size: 18px;
+        }
       }
 
       .social {
