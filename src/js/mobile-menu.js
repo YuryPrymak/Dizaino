@@ -1,4 +1,4 @@
-export default (function mobileMenuToggle() {
+export default (() => {
   const btnNavToggle = document.querySelector('.btn-mobile-menu-toggle');
   const nav = document.querySelector('.nav');
 

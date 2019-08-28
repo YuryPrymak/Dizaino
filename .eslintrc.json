@@ -15,6 +15,11 @@
         "sourceType": "module"
     },
     "rules": {
-        "wrap-iife": [2, "inside"]
+        "wrap-iife": [2, "inside"],
+        "keyword-spacing": [2, {"overrides": {
+            "if": {"after": false},
+            "for": {"after": false},
+            "while": {"after": false}
+        }}]
     }
 }

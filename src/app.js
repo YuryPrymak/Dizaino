@@ -1,4 +1,5 @@
 import './js/mobile-menu.js';
+import './js/smooth-scroll.js';
 
 import './scss/main.scss';
 import './scss/header.scss';
