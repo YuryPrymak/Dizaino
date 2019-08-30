@@ -20,6 +20,15 @@
             "if": {"after": false},
             "for": {"after": false},
             "while": {"after": false}
-        }}]
+        }}],
+        "space-unary-ops": [
+            2, {
+              "words": true,
+              "nonwords": true,
+              "overrides": {
+                "new": false,
+                "++": true
+              }
+        }],
     }
 }
