@@ -15,6 +15,8 @@
         "sourceType": "module"
     },
     "rules": {
+        "no-unused-expressions": "off",
+        "no-plusplus": "off",
         "wrap-iife": [2, "inside"],
         "keyword-spacing": [2, {"overrides": {
             "if": {"after": false},
@@ -22,13 +24,14 @@
             "while": {"after": false}
         }}],
         "space-unary-ops": [
-            2, {
+            1, {
               "words": true,
-              "nonwords": true,
+              "nonwords": false,
               "overrides": {
                 "new": false,
-                "++": true
+                "++": false
               }
-        }],
+            }
+        ]
     }
 }

@@ -84,31 +84,85 @@
       <section class="portfolio" id="portfolio">
         <h2 class="title">Portfolio</h2>
         <ul class="category">
-          <li><button>All</button></li>
-          <li><button>Website</button></li>
-          <li><button>Logo</button></li>
-          <li><button>Photography</button></li>
-          <li><button>Product design</button></li>
+          <li><button data-category="all">All</button></li>
+          <li><button data-category="website">Website</button></li>
+          <li><button data-category="logo">Logo</button></li>
+          <li><button data-category="photography">Photography</button></li>
+          <li><button data-category="product-design">Product design</button></li>
         </ul>
-        <div class="gallery">
-          <button class="btn btn-left">
+        <div class="works">
+          <button class="btn btn-prev" disabled>
             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
               <path 
                 d="M16,32c8.836,0,16-7.164,16-15.998C32,7.164,24.836,0,16,0S0,7.164,0,16.002   C0,24.836,7.164,32,16,32z M15.969,8v6.002H24V18h-8.031v5.969L8,16.002L15.969,8z"
               />
             </svg>
           </button>
-          <ul class="list-of-previews">
-            <li><img src="/src/img/portfolio/portfolio-1.png" alt="Website"></li>
-            <li><img src="/src/img/portfolio/portfolio-2.png" alt="Logo"></li>
-            <li><img src="/src/img/portfolio/portfolio-3.jpg" alt="City"></li>
-            <li><img src="/src/img/portfolio/portfolio-4.png" alt="Logo"></li>
-            <li><img src="/src/img/portfolio/portfolio-5.png" alt="Design"></li>
-            <li><img src="/src/img/portfolio/portfolio-6.jpg" alt="Website"></li>
-            <li><img src="/src/img/portfolio/portfolio-7.jpg" alt="Design"></li>
-            <li><img src="/src/img/portfolio/portfolio-8.jpg" alt="Cosmos"></li>
-          </ul>
-          <button class="btn btn-right">
+          <div class="preview-wrapper">
+            <ul class="list-of-previews">
+              <li data-category="website">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-1.png" alt="Website">
+                </a>
+              </li>
+              <li data-category="logo">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-2.png" alt="Logo">
+                </a>
+              </li>
+              <li data-category="photography">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-3.jpg" alt="City">
+                </a>
+              </li>
+              <li data-category="logo">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-4.png" alt="Logo">
+                </a>
+              </li>
+              <li data-category="product-design">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-5.png" alt="Design">
+                </a>
+              </li>
+              <li data-category="website">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-6.jpg" alt="Website">
+                </a>
+              </li>
+              <li data-category="product-design">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-7.jpg" alt="Design">
+                </a>
+              </li>
+              <li data-category="photography">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-8.jpg" alt="Cosmos">
+                </a>
+              </li>
+              <li data-category="logo">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-9.png" alt="Logo">
+                </a>
+              </li>
+              <li data-category="website">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-10.jpg" alt="Website">
+                </a>
+              </li>
+              <li data-category="photography">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-11.jpg" alt="Lake">
+                </a>
+              </li>
+              <li data-category="logo">
+                <a href="#" target="_blank">
+                  <img src="/src/img/portfolio/portfolio-12.png" alt="Logo">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-next">
             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
               <path 
                 d="M16,0C7.164,0,0,7.164,0,16s7.164,16,16,16s16-7.164,16-16S24.836,0,16,0z M16.031,24v-6H8v-4h8.031   V8.031L24,16L16.031,24z"

@@ -1,6 +1,7 @@
 import './js/mobile-menu.js';
 import './js/smooth-scroll.js';
 import './js/testimonials-slider.js';
+import './js/portfolio-gallery.js';
 
 import './scss/main.scss';
 import './scss/header.scss';
