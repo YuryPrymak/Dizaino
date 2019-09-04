@@ -1,3 +1,6 @@
+@import 'src/scss/partials/_mixins';
+@import 'src/scss/partials/_variables';
+
 .info {
   width: 100%;
   display: flex;
@@ -12,8 +15,8 @@
 
   .title {
     max-width: 800px;
-    font-size: 48px;
-    font-family: 'Pavanam', sans-serif;
+    @include fontSize($fs-title);
+    font-family: $pavanam;
     text-transform: uppercase;
     text-align: center;
   }
@@ -21,8 +24,8 @@
   .description {
     position: relative;
     max-width: 800px;
-    font-size: 18px;
-    font-family: 'Open Sans', sans-serif;
+    @include fontSize($fs-description, null, $fs-description-xs);
+    font-family: $open-sans;
     text-align: center;
 
     &::after {

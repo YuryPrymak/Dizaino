@@ -1,3 +1,5 @@
+@import 'src/scss/partials/_mixins';
+@import 'src/scss/partials/_variables';
 @import 'src/scss/partials/_media-queries';
 
 .our-team {
@@ -18,9 +20,9 @@
     max-width: 800px;
     position: relative;
     margin-bottom: 10px;
-    color: rgb(51, 51, 51);
-    font-size: 48px;
-    font-family: 'Pavanam', sans-serif;
+    color: $color-title;
+    @include fontSize($fs-title);
+    font-family: $pavanam;
     text-transform: uppercase;
     text-align: center;
 
@@ -56,9 +58,9 @@
   > .description {
     max-width: 800px;
     margin-bottom: 50px;
-    color: rgb(102, 102, 102);
-    font-size: 18px;
-    font-family: 'Open Sans', sans-serif;
+    color: $color-description;
+    @include fontSize($fs-description, null, $fs-description-xs);
+    font-family: $open-sans;
     text-align: center;
   }
 
@@ -111,41 +113,26 @@
           box-sizing: border-box;
           border-radius: 50%;
           border: 15px solid rgb(255, 255, 255);
+          @include objectFit(cover);
         }
       }
 
       .title {
-        color: rgb(51, 51, 51);
-        font-size: 16px;
-        font-family: 'Open Sans', sans-serif;
+        color: $color-sub-title;
+        @include fontSize(16px, 18px, 26px);
+        font-family: $open-sans;
         font-weight: bold;
         text-transform: uppercase;
         text-align: center;
-
-        @include media-md {
-          font-size: 18px;
-        }
-
-        @include media-xs {
-          font-size: 26px;
-        }
       }
 
       .description {
         margin-bottom: 10px;
-        color: rgb(153, 153, 153);
-        font-size: 13px;
-        font-family: 'Open Sans', sans-serif;
+        color: $color-sub-description;
+        @include fontSize($fs-sub-description, $fs-sub-description-md, $fs-sub-description-xs);
+        font-family: $open-sans;
         font-style: italic;
         text-align: center;
-
-        @include media-md {
-          font-size: 16px;
-        }
-
-        @include media-xs {
-          font-size: 18px;
-        }
       }
 
       .social {
@@ -162,49 +149,41 @@
           border: 1px solid rgb(136, 136, 136);
           border-radius: 50%;
 
-          -webkit-transition: background-color .2s ease-in-out;
-          -moz-transition: background-color .2s ease-in-out;
-          -ms-transition: background-color .2s ease-in-out;
-          -o-transition: background-color .2s ease-in-out;
-          transition: background-color .2s ease-in-out;
+          @include transition(background-color, .2s, ease-in-out);
 
           &:hover {
             border: none;
-            background-color: rgb(93, 189, 177);
-            
-            svg {
-              fill: rgb(255, 255, 255);
-            }
-
-            .facebook {
-              margin-top: 10px;
-              margin-left: 16px;
-            }
-
-            .twitter {
-              margin-top: 13px;
-              margin-left: 13px;
-            }
-  
-            .linkedin {
-              margin-top: 11px;
-              margin-left: 13px;
-            }
-  
-            .email {
-              margin-top: 14px;
-              margin-left: 10px;
-            }
+            background-color: #5dbdb1;
           }
 
-          svg {
-            fill: rgb(136, 136, 136);
+          &:hover svg {
+            fill: #fff;
+          }
 
-            -webkit-transition: fill .2s ease-in-out;
-            -moz-transition: fill .2s ease-in-out;
-            -ms-transition: fill .2s ease-in-out;
-            -o-transition: fill .2s ease-in-out;
-            transition: fill .2s ease-in-out;
+          &:hover .facebook {
+            margin-top: 10px;
+            margin-left: 16px;
+          }
+          
+          &:hover .twitter {
+            margin-top: 13px;
+            margin-left: 13px;
+          }
+
+          &:hover .linkedin {
+            margin-top: 11px;
+            margin-left: 13px;
+          }
+          
+          &:hover .email {
+            margin-top: 14px;
+              margin-left: 10px;
+          }     
+
+          svg {
+            fill: #878787;
+
+            @include transition(fill, .2s, ease-in-out);
           }
 
           .facebook {

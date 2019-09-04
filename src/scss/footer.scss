@@ -1,3 +1,5 @@
+@import 'src/scss/partials/_mixins';
+@import 'src/scss/partials/_variables';
 @import 'src/scss/partials/_media-queries';
 
 .footer {
@@ -16,18 +18,10 @@
   .description {
     max-width: 800px;
     margin: 0 auto 25px auto;
-    font-size: 13px;
-    font-family: 'Open Sans', sans-serif;
+    @include fontSize($fs-sub-description, $fs-sub-description-md, $fs-sub-description-xs);
+    font-family: $open-sans;
     text-align: center;
     text-transform: uppercase;
-
-    @include media-md {
-      font-size: 16px;
-    }
-
-    @include media-xs {
-      font-size: 18px;
-    }
     
     &::before {
       content: '';
@@ -43,7 +37,7 @@
 
     a {
       text-decoration: none;
-      color: rgb(255, 255, 255);
+      color: #fff;
     }
   }
 
@@ -59,11 +53,7 @@
     opacity: .8;
     cursor: pointer;
 
-    -webkit-transition: opacity .2s ease-in-out;
-    -moz-transition: opacity .2s ease-in-out;
-    -ms-transition: opacity .2s ease-in-out;
-    -o-transition: opacity .2s ease-in-out;
-    transition: opacity .2s ease-in-out;
+    @include transition(opacity, .2s, ease-in-out);
     
     &:hover {
       opacity: 1;

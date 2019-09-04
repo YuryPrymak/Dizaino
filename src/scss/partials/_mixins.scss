@@ -1,0 +1,37 @@
+@import 'src/scss/partials/_media-queries';
+
+@mixin transition($property, $duration, $timingFunction) {
+  -webkit-transition: $property $duration $timingFunction;
+  -moz-transition: $property $duration $timingFunction;
+  -ms-transition: $property $duration $timingFunction;
+  -o-transition: $property $duration $timingFunction;
+  transition: $property $duration $timingFunction;
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -moz-transform: $property;
+  -ms-transform: $property;
+  -o-transform: $property;
+  transform: $property;
+}
+
+@mixin objectFit($value) {
+  -webkit-object-fit: $value;
+  -moz-object-fit: $value;
+  -ms-object-fit: $value;
+  -o-object-fit: $value;
+  object-fit: $value;
+}
+
+@mixin fontSize($default, $md: null, $xs: null) {
+  font-size: $default;
+
+  @include media-md {
+    font-size: $md;
+  }
+
+  @include media-xs {
+    font-size: $xs;
+  }
+}

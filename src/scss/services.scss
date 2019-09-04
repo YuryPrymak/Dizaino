@@ -1,3 +1,5 @@
+@import 'src/scss/partials/_mixins';
+@import 'src/scss/partials/_variables';
 @import 'src/scss/partials/_media-queries';
 
 .services {
@@ -12,9 +14,9 @@
   > .title {
     max-width: 800px;
     position: relative;
-    font-size: 48px;
-    font-family: 'Pavanam', sans-serif;
-    color: rgb(34, 34, 34);
+    @include fontSize($fs-title);
+    font-family: $pavanam;
+    color: $color-title;
     text-align: center;
     text-transform: uppercase;
 
@@ -50,14 +52,10 @@
   > .description {
     max-width: 800px;
     margin-bottom: 40px;
-    font-size: 18px;
-    font-family: 'Open Sans', sans-serif;
-    color: rgb(153, 153, 153);
+    @include fontSize($fs-description, null, $fs-description-xs);
+    font-family: $open-sans;
+    color: $color-description;
     text-align: center;
-
-    @include media-xs {
-      font-size: 24px;
-    }
   }
 
   .cards {
@@ -100,7 +98,7 @@
           top: 0;
           left: 0;
           border-radius: 50%;
-          object-fit: cover;
+          @include objectFit(cover);
         }
       }
 
@@ -113,9 +111,9 @@
         .title {
           position: relative;
           margin-bottom: 30px;
-          color: rgb(31, 60, 64);
-          font-size: 30px;
-          font-family: 'Pavanam', sans-serif;
+          color: $color-sub-title;
+          @include fontSize($fs-sub-title);
+          font-family: $pavanam;
           text-transform: uppercase;
           text-align: center;
   
@@ -132,18 +130,10 @@
         }
   
         .description {
-          color: rgb(102, 102, 102);
-          font-size: 14px;
-          font-family: 'Open Sans', sans-serif;
+          color: $color-sub-description;
+          @include fontSize($fs-sub-description, $fs-sub-description-md, $fs-sub-description-xs);
+          font-family: $open-sans;
           text-align: center;
-
-          @include media-md {
-            font-size: 16px;
-          }
-
-          @include media-xs {
-            font-size: 18px;
-          }
         }
       }
     }

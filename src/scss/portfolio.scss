@@ -1,3 +1,5 @@
+@import 'src/scss/partials/_mixins';
+@import 'src/scss/partials/_variables';
 @import 'src/scss/partials/_media-queries';
 
 .portfolio {
@@ -13,9 +15,9 @@
     max-width: 800px;
     position: relative;
     margin-bottom: 25px;
-    color: rgb(51, 51, 51);
-    font-size: 48px;
-    font-family: 'Pavanam', sans-serif;
+    color: $color-title;
+    @include fontSize($fs-title);
+    font-family: $pavanam;
     text-transform: uppercase;
     text-align: center;
 
@@ -60,24 +62,16 @@
       border: none;
       border-radius: 3px;
       background-color: transparent;
-      color: rgb(153, 153, 153);
-      font-size: 14px;
-      font-family: 'Open Sans', sans-serif;
+      color: #999;
+      @include fontSize(14px, 18px);
+      font-family: $open-sans;
       cursor: pointer;
 
-      -webkit-transition: all .2s ease-in-out;
-      -moz-transition: all .2s ease-in-out;
-      -ms-transition: all .2s ease-in-out;
-      -o-transition: all .2s ease-in-out;
-      transition: all .2s ease-in-out;
-
-      @include media-md {
-        font-size: 18px;
-      }
+      @include transition(all, .2s, ease-in-out);
 
       &:hover {
-        background-color: rgb(242, 182, 62);
-        color: rgb(255, 255, 255);
+        background-color: #f2b63e;
+        color: #fff;
       }
     }
   }
@@ -99,7 +93,7 @@
       position: absolute;
       border: none;
       border-radius: 50%;
-      background-color: rgb(255, 255, 255);
+      background-color: #fff;
       overflow: hidden;
       cursor: pointer;
 
@@ -114,13 +108,7 @@
       }
   
       svg {
-        fill: rgb(93, 189, 177);
-  
-        -webkit-transition: fill .2s ease-in-out;
-        -moz-transition: fill .2s ease-in-out;
-        -ms-transition: fill .2s ease-in-out;
-        -o-transition: fill .2s ease-in-out;
-        transition: fill .2s ease-in-out;
+        fill: #5dbdb1;
       }
     }
   
@@ -152,11 +140,7 @@
       position: relative;
       padding-top: calc(100% / 2 - 60px);
 
-      -webkit-transition: all 1s ease-in-out;
-      -moz-transition: all 1s ease-in-out;
-      -ms-transition: all 1s ease-in-out;
-      -o-transition: all 1s ease-in-out;
-      transition: all 1s ease-in-out;
+      @include transition(all, 1s, ease-in-out);
 
       @include media-lg {
         padding-top: calc(100% / 3 * 2 - 80px);
@@ -184,11 +168,7 @@
       justify-content: center;
       list-style-type: none;
 
-      -webkit-transition: all 1s ease-in-out;
-      -moz-transition: all 1s ease-in-out;
-      -ms-transition: all 1s ease-in-out;
-      -o-transition: all 1s ease-in-out;
-      transition: all 1s ease-in-out;
+      @include transition(all, 1s, ease-in-out);
 
       li {
         min-width: calc(100% / 4 - 10px);
@@ -197,11 +177,7 @@
         padding-top: calc(100% / 4 - 10px);
         cursor: pointer;
 
-        -webkit-transition: all 1s ease-in-out;
-        -moz-transition: all 1s ease-in-out;
-        -ms-transition: all 1s ease-in-out;
-        -o-transition: all 1s ease-in-out;
-        transition: all 1s ease-in-out;
+        @include transition(all, 1s, ease-in-out);
 
         @include media-lg {
           min-width: calc(100% / 3 - 10px);
@@ -225,7 +201,7 @@
           position: absolute;
           top: 0;
           left: 0;
-          object-fit: cover;
+          @include objectFit(cover);
         }
       }
     }

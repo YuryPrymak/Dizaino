@@ -1,8 +1,10 @@
+@import 'src/scss/partials/_mixins';
+@import 'src/scss/partials/_variables';
 @import 'src/scss/partials/_media-queries';
 
 .testimonials {
   width: 100%;
-  background-color: rgb(93, 189, 177);
+  background-color: #5dbdb1;
 }
 
 .testimonials-wrapper {
@@ -18,8 +20,8 @@
   .title {
     max-width: 800px;
     margin: 0 auto;
-    font-size: 48px;
-    font-family: 'Pavanam', sans-serif;
+    @include fontSize($fs-title);
+    font-family: $pavanam;
     text-transform: uppercase;
     text-align: center;
 
@@ -75,54 +77,50 @@
 
     .next-slide-show {
       position: static;
+      -webkit-animation: next-slide-show 1s ease-in-out 1;
       animation: next-slide-show 1s ease-in-out 1;
+      -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards;
     }
 
     .next-slide-hide {
       position: absolute;
+      -webkit-animation: next-slide-hide 1s ease-in-out 1;
       animation: next-slide-hide 1s ease-in-out 1;
+      -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards;
     }
 
     .prev-slide-show {
       position: static;
+      -webkit-animation: prev-slide-show 1s ease-in-out 1;
       animation: prev-slide-show 1s ease-in-out 1;
+      -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards;
     }
 
     .prev-slide-hide {
       position: absolute;
+      -webkit-animation: prev-slide-hide 1s ease-in-out 1;
       animation: prev-slide-hide 1s ease-in-out 1;
+      -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards;
     }
 
     .testimonial {
       max-width: 800px;
       margin: 0 auto 20px auto;
-      font-size: 18px;
-      font-family: 'Open Sans', sans-serif;
+      @include fontSize(18px, 24px);
+      font-family: $open-sans;
       text-align: center;
-  
-      @include media-xs {
-        font-size: 26px;
-      }
     }
 
     .author {
       max-width: 600px;
       margin: 0 auto;
-      font-size: 13px;
-      font-family: 'Open Sans', sans-serif;
+      @include fontSize($fs-sub-description, $fs-sub-description-md, $fs-sub-description-xs);
+      font-family: $open-sans;
       text-align: center;
-  
-      @include media-md {
-        font-size: 16px;
-      }
-  
-      @include media-xs {
-        font-size: 18px;
-      }
     }
   }
 
@@ -150,11 +148,7 @@
     svg {
       fill: rgba(255, 255, 255, 0.7);
 
-      -webkit-transition: fill .2s ease-in-out;
-      -moz-transition: fill .2s ease-in-out;
-      -ms-transition: fill .2s ease-in-out;
-      -o-transition: fill .2s ease-in-out;
-      transition: fill .2s ease-in-out;
+      @include transition(fill, .2s, ease-in-out);
     }
   }
 
@@ -181,50 +175,98 @@
   }
 }
 
-@keyframes next-slide-show {
+@-webkit-keyframes next-slide-show {
   from {
     opacity: 0;
-    transform: translateX(100%);
+    @include transform(translateX(100%));
   }
 
   to {
-    transform: translateX(0%);
     opacity: 1;
+    @include transform(translateX(0%));
+  }
+}
+
+@keyframes next-slide-show {
+  from {
+    opacity: 0;
+    @include transform(translateX(100%));
+  }
+
+  to {
+    opacity: 1;
+    @include transform(translateX(0%));
+  }
+}
+
+@-webkit-keyframes next-slide-hide {
+  from {
+    opacity: 1;
+    @include transform(translateX(0%));
+  }
+
+  to {
+    opacity: 0;
+    @include transform(translateX(-100%));
   }
 }
 
 @keyframes next-slide-hide {
   from {
     opacity: 1;
-    transform: translateX(0%);
+    @include transform(translateX(0%));
   }
 
   to {
     opacity: 0;
-    transform: translateX(-100%);
+    @include transform(translateX(-100%));
+  }
+}
+
+@-webkit-keyframes prev-slide-show {
+  from {
+    opacity: 0;
+    @include transform(translateX(-100%));
+  }
+
+  to {
+    opacity: 1;
+    @include transform(translateX(0%));
   }
 }
 
 @keyframes prev-slide-show {
   from {
     opacity: 0;
-    transform: translateX(-100%);
+    @include transform(translateX(-100%));
   }
 
   to {
-    transform: translateX(0%);
     opacity: 1;
+    @include transform(translateX(0%));
+  }
+}
+
+@-webkit-keyframes prev-slide-hide {
+  from {
+    opacity: 1;
+    @include transform(translateX(0%));
+  }
+
+  to {
+    opacity: 0;
+    @include transform(translateX(100%));
   }
 }
 
 @keyframes prev-slide-hide {
   from {
     opacity: 1;
-    transform: translateX(0%);
+    @include transform(translateX(0%));
   }
 
   to {
     opacity: 0;
-    transform: translateX(100%);
+    @include transform(translateX(100%));
   }
 }

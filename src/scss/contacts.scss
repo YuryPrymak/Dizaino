@@ -1,3 +1,5 @@
+@import 'src/scss/partials/_mixins';
+@import 'src/scss/partials/_variables';
 @import 'src/scss/partials/_media-queries';
 
 .contacts {
@@ -24,9 +26,9 @@
 
     .title,
     .phone-num {
-      color: rgb(231, 97, 34);
-      font-size: 48px;
-      font-family: 'Pavanam', sans-serif;
+      color: #e76122;
+      @include fontSize($fs-title);
+      font-family: $pavanam;
       font-weight: normal;
       text-transform: uppercase;
       text-align: center;
@@ -44,7 +46,7 @@
 
       @include media-sm {
         margin-left: 0;
-        font-size: 36px;
+        @include fontSize(36px);
       }
     }
   }
@@ -52,8 +54,8 @@
   .address {
     max-width: 800px;
     margin-bottom: 20px;
-    font-size: 18px;
-    font-family: 'Open Sans', sans-serif;
+    @include fontSize(18px, null, 24px);
+    font-family: $open-sans;
     text-align: center;
   }
 
@@ -82,9 +84,9 @@
   .title {
     max-width: 800px;
     margin-bottom: 10px;
-    color: rgb(231, 97, 34);
-    font-size: 30px;
-    font-family: 'Pavanam', sans-serif;
+    color: #e76122;
+    @include fontSize(36px);
+    font-family: $pavanam;
     font-weight: normal;
     text-transform: uppercase;
     text-align: center;
@@ -93,18 +95,10 @@
   .description {
     max-width: 800px;
     margin-bottom: 10px;
-    font-size: 14px;
-    font-family: 'Open Sans', sans-serif;
+    @include fontSize($fs-description, null, $fs-description-xs);
+    font-family: $open-sans;
     font-style: italic;
     text-align: center;
-
-    @include media-md {
-      font-size: 16px;
-    }
-
-    @include media-xs {
-      font-size: 18px;
-    }
   }
 
   form {
@@ -131,8 +125,8 @@
         height: 45px;
         border: none;
         border-radius: 3px;
-        background-color: rgb(255, 255, 255);
-        font-family: 'Open Sans', sans-serif;
+        font-family: $open-sans;
+        @include fontSize(14px, 16px, 18px);
         text-indent: 10px;
         line-height: 45px;
 
@@ -148,7 +142,8 @@
       padding: 5px 10px;
       border: none;
       border-radius: 3px;
-      font-family: 'Open Sans', sans-serif;
+      font-family: $open-sans;
+      @include fontSize(14px, 16px, 18px);
       resize: none;
     }
 
@@ -160,10 +155,10 @@
       left: calc(50% - 85px);
       border: none;
       border-radius: 5px;
-      background-color: rgb(93, 189, 177);
-      color: rgb(255, 255, 255);
-      font-size: 16px;
-      font-family: 'Open Sans', sans-serif;
+      background-color: $bg-color-btn;
+      color: $color-btn;
+      @include fontSize($fs-btn);
+      font-family: $open-sans;
       font-weight: bold;
       text-transform: uppercase;
       text-align: center;

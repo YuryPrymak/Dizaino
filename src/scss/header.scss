@@ -1,3 +1,5 @@
+@import 'src/scss/partials/_mixins';
+@import 'src/scss/partials/_variables';
 @import 'src/scss/partials/_media-queries';
 
 .header {
@@ -17,17 +19,12 @@
   .greeting {
     max-width: 800px;
     position: relative;
-    font-size: 48px;
-    font-family: 'Mogra', cursive;
+    @include fontSize(48px, 58px, 48px);
+    font-family: $mogra;
     text-align: center;
-
-    @include media-md {
-      font-size: 58px;
-    }
 
     @include media-xs {
       margin-top: 50px;
-      font-size: 48px;
     }
 
     &::after {
@@ -37,7 +34,7 @@
       position: absolute;
       left: calc(50% - 170px);
       bottom: 0;
-      background-color: rgb(255, 255, 255);
+      background-color: #fff;
       opacity: 0.5;
 
       @include media-xs {
@@ -49,33 +46,21 @@
   
   .title {
     max-width: 800px;
-    font-size: 120px;
-    font-family: 'Oswald', sans-serif;
+    @include fontSize(120px, 130px, 86px);
+    font-family: $oswald;
     text-transform: uppercase;
     letter-spacing: .05em;
     text-indent: .05em;
     text-align: center;
-
-    @include media-md {
-      font-size: 130px;
-    }
-
-    @include media-xs {
-      font-size: 86px;
-    }
   }
 
   .description {
     max-width: 800px;
     margin-bottom: 120px;
-    font-size: 40px;
-    font-family: 'Pavanam', sans-serif;
+    @include fontSize(40px, 46px);
+    font-family: $pavanam;
     text-transform: uppercase;
     text-align: center;
-
-    @include media-md {
-      font-size: 45px;
-    }
   }
 
   .btn-scroll-down {
@@ -89,11 +74,7 @@
     opacity: .8;
     cursor: pointer;
 
-    -webkit-transition: opacity .2s ease-in-out;
-    -moz-transition: opacity .2s ease-in-out;
-    -ms-transition: opacity .2s ease-in-out;
-    -o-transition: opacity .2s ease-in-out;
-    transition: opacity .2s ease-in-out;
+    @include transition(opacity, .2s, ease-in-out);
     
     &:hover {
       opacity: 1;
@@ -125,17 +106,13 @@
   }
 
   &:hover svg {
-    fill: rgb(255, 255, 255);
+    fill: #fff;
   }
 
   svg {
-    fill: rgb(135,135,135);
+    fill: #878787;
 
-    -webkit-transition: fill .2s ease-in-out;
-    -moz-transition: fill .2s ease-in-out;
-    -ms-transition: fill .2s ease-in-out;
-    -o-transition: fill .2s ease-in-out;
-    transition: fill .2s ease-in-out;
+    @include transition(fill, .2s, ease-in-out);
   }
 }
 
@@ -184,25 +161,18 @@
     a {
       display: block;
       padding: 10px 25px;
-      color: rgba(255, 255, 255, .8);
-      font-size: 16px;
-      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      opacity: 0.8;
+      @include fontSize(16px, 24px);
+      font-family: $open-sans;
       text-align: center;
       text-transform: uppercase;
       text-decoration: none;
 
-      -webkit-transition: color .2s ease-in-out;
-      -moz-transition: color .2s ease-in-out;
-      -ms-transition: color .2s ease-in-out;
-      -o-transition: color .2s ease-in-out;
-      transition: color .2s ease-in-out;
-
-      @include media-xl {
-        font-size: 24px;
-      }
+      @include transition(color, .2s, ease-in-out);
 
       &:hover {
-        color: rgba(255, 255, 255, 1);
+        opacity: 1;
       }
     }
   }
