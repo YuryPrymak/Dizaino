@@ -38,6 +38,16 @@
     a {
       text-decoration: none;
       color: #fff;
+
+      @include transition(color, .2s, ease-in-out);
+
+      &:hover {
+        color: #509990;
+      }
+
+      @include focus {
+        color: #509990;
+      }
     }
   }
 
@@ -56,6 +66,10 @@
     @include transition(opacity, .2s, ease-in-out);
     
     &:hover {
+      opacity: 1;
+    }
+
+    @include focus {
       opacity: 1;
     }
   }

@@ -1,9 +1,10 @@
 export default (() => {
   const btnFilters = document.querySelector('.portfolio .category');
-  const prevWorks = document.querySelector('.btn-prev');
-  const nextWorks = document.querySelector('.btn-next');
+  const prevWorks = document.querySelector('.portfolio .btn-prev');
+  const nextWorks = document.querySelector('.portfolio .btn-next');
   const works = document.querySelector('.list-of-previews');
   const worksEl = document.querySelectorAll('.list-of-previews li');
+  const worksLinks = document.querySelectorAll('.list-of-previews li a');
   let offset = 10;
   let btnPrevIsDisabled = true;
   let btnNextIsDisabled = false;
@@ -145,6 +146,7 @@ export default (() => {
   function applyFilter(e) {
     if(e.target && e.target.tagName === 'BUTTON') {
       currentFilter = e.target.getAttribute('data-category');
+      works.classList.add('works-toggle-anim');
       for(let i = 0; i < worksEl.length; i++) {
         if(currentFilter === 'all') {
           worksEl[i].style.display = 'block';
@@ -154,9 +156,26 @@ export default (() => {
           worksEl[i].style.display = 'none';
         }
       }
+      setTimeout(() => {
+        works.classList.remove('works-toggle-anim');
+      }, 300);
       countVisibleElems();
       alignContent();
       resetTransform();
+    }
+  }
+
+  function tabKeyPress(e) {
+    const secondLink = worksLinks[quantityOfShifts * 2];
+    const secondToLastLink = worksLinks[quantityOfColumns * 2 - 1 + (quantityOfShifts * 2)];
+    const tabKeyCode = 9;
+    let isTabPress = false;
+    e.keyCode === tabKeyCode ? isTabPress = true : isTabPress = false;
+    if(isTabPress && secondLink === document.activeElement && !btnPrevIsDisabled) {
+      transform('+');
+    }
+    if(isTabPress && secondToLastLink === document.activeElement && !btnNextIsDisabled) {
+      transform('-');
     }
   }
 
@@ -173,6 +192,8 @@ export default (() => {
     alignContent();
     resetTransform();
   });
+
+  window.addEventListener('keyup', (e) => tabKeyPress(e)); // Accessibility
 
   works.addEventListener('touchstart', touchStart);
 

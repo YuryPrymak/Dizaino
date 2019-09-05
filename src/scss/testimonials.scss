@@ -134,15 +134,21 @@
     overflow: hidden;
     cursor: pointer;
 
-    @include media-xs {
-      width: 40px;
-      height: 40px;
-    }
-
     &:hover {
       svg {
         fill: rgba(255, 255, 255, 1);
       }
+    }
+
+    @include focus {
+      svg {
+        fill: rgba(255, 255, 255, 1);
+      }
+    }
+
+    @include media-xs {
+      width: 40px;
+      height: 40px;
     }
 
     svg {

@@ -1,6 +1,6 @@
 export default (() => {
-  const prevSlide = document.querySelector('.btn-prev');
-  const nextSlide = document.querySelector('.btn-next');
+  const prevSlide = document.querySelector('.testimonials .btn-prev');
+  const nextSlide = document.querySelector('.testimonials .btn-next');
   const slider = document.querySelector('.list-of-testimonials');
   const slides = document.querySelectorAll('.list-of-testimonials li');
   const slidesQuantity = slides.length;

@@ -4,6 +4,7 @@ export default (() => {
 
   btnNavToggle.addEventListener('click', () => {
     nav.classList.toggle('open-menu');
+    nav.classList.remove('sticky-nav');
   });
 
   nav.addEventListener('click', () => {

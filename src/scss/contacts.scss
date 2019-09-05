@@ -26,7 +26,7 @@
 
     .title,
     .phone-num {
-      color: #e76122;
+      color: #d34909;
       @include fontSize($fs-title);
       font-family: $pavanam;
       font-weight: normal;
@@ -43,6 +43,16 @@
 
     .phone-num {
       margin-left: 10px;
+
+      @include transition(color, .2s, ease-in-out);
+
+      &:hover {
+        color: rgb(243, 118, 61);
+      }
+
+      @include focus {
+        color: rgb(243, 118, 61);
+      }
 
       @include media-sm {
         margin-left: 0;
@@ -70,13 +80,28 @@
       a {
         width: 40px;
         height: 40px;
-        display: block; 
-        border-radius: 50%;
-        overflow: hidden;
-      }
-
-      img {
         display: block;
+        overflow: hidden;
+        
+        img {
+          width: 32px;
+          display: block;
+          margin: 4px;
+
+          @include transition(all, .2s, ease-in-out);
+        }
+
+        &:hover {
+          img {
+            @include transform(scale(.9));
+          }
+        }
+
+        @include focus {
+          img {
+            @include transform(scale(.9));
+          }
+        }
       }
     }
   }
@@ -130,6 +155,8 @@
         text-indent: 10px;
         line-height: 45px;
 
+        @include focus();
+
         &:nth-child(2) {
           margin: 20px 0;
         }
@@ -145,6 +172,7 @@
       font-family: $open-sans;
       @include fontSize(14px, 16px, 18px);
       resize: none;
+      @include focus();
     }
 
     .btn-send-email {
@@ -163,6 +191,16 @@
       text-transform: uppercase;
       text-align: center;
       cursor: pointer;
+
+      @include transition(all, .2s, ease-in-out);
+
+      &:hover {
+        background-color: $bg-color-btn-hover;
+      }
+
+      @include focus {
+        text-shadow: 1px 1px 4px #222;
+      }
     }
   }
 }

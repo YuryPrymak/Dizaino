@@ -152,33 +152,22 @@
           @include transition(background-color, .2s, ease-in-out);
 
           &:hover {
-            border: none;
+            border: 1px solid #5dbdb1;
             background-color: #5dbdb1;
-          }
 
-          &:hover svg {
-            fill: #fff;
-          }
-
-          &:hover .facebook {
-            margin-top: 10px;
-            margin-left: 16px;
+            svg {
+              fill: #fff;
+            }
           }
           
-          &:hover .twitter {
-            margin-top: 13px;
-            margin-left: 13px;
-          }
+          @include focus {
+            border: 1px solid #5dbdb1;
+            background-color: #5dbdb1;
 
-          &:hover .linkedin {
-            margin-top: 11px;
-            margin-left: 13px;
+            svg {
+              fill: #fff;
+            }
           }
-          
-          &:hover .email {
-            margin-top: 14px;
-              margin-left: 10px;
-          }     
 
           svg {
             fill: #878787;

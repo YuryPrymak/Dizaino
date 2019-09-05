@@ -81,6 +81,16 @@
       line-height: 45px;
       cursor: pointer;
 
+      @include transition(all, .2s, ease-in-out);
+
+      &:hover {
+        background-color: $bg-color-btn-hover;
+      }
+
+      @include focus {
+        text-shadow: 1px 1px 4px #222;
+      }
+
       @include media-md {
         margin-left: calc(50% - 85px);
       }
