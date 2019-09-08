@@ -5,26 +5,24 @@ export default (() => {
   const scrollDownTo = document.querySelectorAll('section')[0];
   const scrollUpTO = document.querySelector('body');
 
-  function smoothScroll(el) {
+  const smoothScroll = function(el) {
     el.scrollIntoView({
       block: 'start',
       behavior: 'smooth',
     });
-  }
+  };
 
-  btnScrollDown.addEventListener('click', () => {
-    smoothScroll(scrollDownTo);
-  });
-
-  btnScrollUp.addEventListener('click', () => {
-    smoothScroll(scrollUpTO);
-  });
-
-  nav.addEventListener('click', (e) => {
+  const scrollTo = function(e) {
     if(e.target && e.target.nodeName === 'A') {
       e.preventDefault();
-      const scrollTo = document.querySelector(e.target.getAttribute('href'));
-      smoothScroll(scrollTo);
+      const scrollToEl = document.querySelector(e.target.getAttribute('href'));
+      smoothScroll(scrollToEl);
     }
-  });
+  };
+
+  nav.addEventListener('click', e => scrollTo(e));
+
+  btnScrollDown.addEventListener('click', () => smoothScroll(scrollDownTo));
+
+  btnScrollUp.addEventListener('click', () => smoothScroll(scrollUpTO));
 })();

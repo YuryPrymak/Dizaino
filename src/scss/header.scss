@@ -93,8 +93,8 @@
 }
 
 .btn-mobile-menu-toggle {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -110,12 +110,12 @@
   }
 
   &:hover svg {
-    fill: #fff;
+    fill: #e3e3e3;
   }
 
   @include focus {
     svg {
-      fill: #fff;
+      fill: #e3e3e3;
     }
   };
 
@@ -123,6 +123,10 @@
     fill: #878787;
 
     @include transition(fill, .2s, ease-in-out);
+  }
+
+  .hide-svg {
+    display: none;
   }
 }
 
@@ -192,8 +196,11 @@
   }
 }
 
-.open-menu {
+.open-nav {
   display: block;
+
+  @include animation(mobileNavOpen, .3s, ease-in-out, 1);
+  @include animationFillMode(forwards);
 }
 
 .sticky-nav {
@@ -204,10 +211,8 @@
   background-color: rgba(34, 34, 34, .9);
   z-index: 9999;
 
-  -webkit-animation: stickyNav .3s ease-in-out 1;
-  animation: stickyNav .3s ease-in-out 1;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+  @include animation(stickyNav, .3s, ease-in-out, 1);
+  @include animationFillMode(forwards);
 
   ul {
     justify-content: center;
@@ -226,7 +231,7 @@
   }
 }
 
-@-webkit-keyframes stickyNav {
+@include keyframes(stickyNav) {
   from {
     top: -42px;
   }
@@ -236,12 +241,12 @@
   }
 }
 
-@keyframes stickyNav {
+@include keyframes(mobileNavOpen) {
   from {
-    top: -42px;
+    opacity: 0;
   }
 
   to {
-    top: 0px;
+    opacity: 1;
   }
 }

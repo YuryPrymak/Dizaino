@@ -42,3 +42,23 @@
     @content;
   }
 }
+
+@mixin animation($name, $duration, $timingFunc, $iterationCount) {
+  -webkit-animation: $name $duration $timingFunc $iterationCount;
+  animation:  $name $duration $timingFunc $iterationCount;
+}
+
+@mixin animationFillMode($mode) {
+  -webkit-animation-fill-mode: $mode;
+  animation-fill-mode: $mode;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  
+  @keyframes #{$name} {
+    @content;
+  }
+}

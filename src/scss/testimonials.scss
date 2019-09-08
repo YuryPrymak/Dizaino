@@ -77,34 +77,30 @@
 
     .next-slide-show {
       position: static;
-      -webkit-animation: next-slide-show 1s ease-in-out 1;
-      animation: next-slide-show 1s ease-in-out 1;
-      -webkit-animation-fill-mode: forwards;
-      animation-fill-mode: forwards;
+
+      @include animation(next-slide-show, 1s, ease-in-out, 1);
+      @include animationFillMode(forwards);
     }
 
     .next-slide-hide {
       position: absolute;
-      -webkit-animation: next-slide-hide 1s ease-in-out 1;
-      animation: next-slide-hide 1s ease-in-out 1;
-      -webkit-animation-fill-mode: forwards;
-      animation-fill-mode: forwards;
+
+      @include animation(next-slide-hide, 1s, ease-in-out, 1);
+      @include animationFillMode(forwards);
     }
 
     .prev-slide-show {
       position: static;
-      -webkit-animation: prev-slide-show 1s ease-in-out 1;
-      animation: prev-slide-show 1s ease-in-out 1;
-      -webkit-animation-fill-mode: forwards;
-      animation-fill-mode: forwards;
+
+      @include animation(prev-slide-show, 1s, ease-in-out, 1);
+      @include animationFillMode(forwards);
     }
 
     .prev-slide-hide {
       position: absolute;
-      -webkit-animation: prev-slide-hide 1s ease-in-out 1;
-      animation: prev-slide-hide 1s ease-in-out 1;
-      -webkit-animation-fill-mode: forwards;
-      animation-fill-mode: forwards;
+
+      @include animation(prev-slide-hide, 1s, ease-in-out, 1);
+      @include animationFillMode(forwards);
     }
 
     .testimonial {
@@ -136,13 +132,13 @@
 
     &:hover {
       svg {
-        fill: rgba(255, 255, 255, 1);
+        fill: #fff
       }
     }
 
     @include focus {
       svg {
-        fill: rgba(255, 255, 255, 1);
+        fill: #fff;
       }
     }
 
@@ -181,7 +177,7 @@
   }
 }
 
-@-webkit-keyframes next-slide-show {
+@include keyframes(next-slide-show) {
   from {
     opacity: 0;
     @include transform(translateX(100%));
@@ -193,19 +189,7 @@
   }
 }
 
-@keyframes next-slide-show {
-  from {
-    opacity: 0;
-    @include transform(translateX(100%));
-  }
-
-  to {
-    opacity: 1;
-    @include transform(translateX(0%));
-  }
-}
-
-@-webkit-keyframes next-slide-hide {
+@include keyframes(next-slide-hide) {
   from {
     opacity: 1;
     @include transform(translateX(0%));
@@ -217,19 +201,7 @@
   }
 }
 
-@keyframes next-slide-hide {
-  from {
-    opacity: 1;
-    @include transform(translateX(0%));
-  }
-
-  to {
-    opacity: 0;
-    @include transform(translateX(-100%));
-  }
-}
-
-@-webkit-keyframes prev-slide-show {
+@include keyframes(prev-slide-show) {
   from {
     opacity: 0;
     @include transform(translateX(-100%));
@@ -241,31 +213,7 @@
   }
 }
 
-@keyframes prev-slide-show {
-  from {
-    opacity: 0;
-    @include transform(translateX(-100%));
-  }
-
-  to {
-    opacity: 1;
-    @include transform(translateX(0%));
-  }
-}
-
-@-webkit-keyframes prev-slide-hide {
-  from {
-    opacity: 1;
-    @include transform(translateX(0%));
-  }
-
-  to {
-    opacity: 0;
-    @include transform(translateX(100%));
-  }
-}
-
-@keyframes prev-slide-hide {
+@include keyframes(prev-slide-hide) {
   from {
     opacity: 1;
     @include transform(translateX(0%));

@@ -15,6 +15,10 @@
         "sourceType": "module"
     },
     "rules": {
+        "arrow-parens": [2, "as-needed", { "requireForBlockBody": false }],
+        "func-names": ["error", "as-needed"],
+        "space-before-function-paren": ["error", "never"],
+        "no-restricted-syntax": ["error", "ForInStatement"],
         "no-unused-expressions": "off",
         "no-plusplus": "off",
         "wrap-iife": [2, "inside"],

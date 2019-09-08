@@ -193,7 +193,7 @@
       justify-content: center;
       list-style-type: none;
 
-      @include transition(all, 1s, ease-in-out);
+      @include transition(transform, 1s, ease-in-out);
 
       li {
         min-width: calc(100% / 4 - 10px);
@@ -242,6 +242,7 @@
             top: 0;
             left: 0;
             @include objectFit(cover);
+            
             @include transition(all, .3s, ease-in-out);
           }
         }
@@ -252,25 +253,14 @@
 
 .works-toggle-anim {
   opacity: .3;
-  -webkit-animation: worksToggleAnim .3s ease-in-out 1;
-  animation: worksToggleAnim .3s ease-in-out 1;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+
+  @include animation(worksToggleAnim, .3s, ease-in-out, 1);
+  @include animationFillMode(forwards);
 }
 
-@-webkit-keyframes worksToggleAnim {
+@include keyframes(worksToggleAnim) {
   from {
     opacity: .3;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes worksToggleAnim {
-  from {
-    opacity: 0;
   }
 
   to {

@@ -1,7 +1,7 @@
 export default (() => {
   const btnFilters = document.querySelector('.portfolio .category');
-  const prevWorks = document.querySelector('.portfolio .btn-prev');
-  const nextWorks = document.querySelector('.portfolio .btn-next');
+  const btnPrevWorks = document.querySelector('.portfolio .btn-prev');
+  const btnNextWorks = document.querySelector('.portfolio .btn-next');
   const works = document.querySelector('.list-of-previews');
   const worksEl = document.querySelectorAll('.list-of-previews li');
   const worksLinks = document.querySelectorAll('.list-of-previews li a');
@@ -15,7 +15,7 @@ export default (() => {
   let xDown = null;
   let yDown = null;
 
-  function checkWidth() {
+  const checkWidth = function() {
     const mediaDefault = window.matchMedia('(min-width: 992px)').matches;
     const mediaLg = window.matchMedia('(max-width: 992px)').matches;
     const mediaMd = window.matchMedia('(max-width: 768px)').matches;
@@ -27,20 +27,20 @@ export default (() => {
     mediaEx ? quantityOfColumns = 1 : undefined;
 
     mediaEx ? offset = 0 : offset = 10;
-  }
+  };
 
-  function btnToggle() {
+  const btnToggle = function() {
     const shiftRegardingQuantityOfCol = quantityOfColumns + quantityOfShifts;
 
-    function btnPrevToggle(value) {
-      prevWorks.disabled = value;
+    const btnPrevToggle = function(value) {
+      btnPrevWorks.disabled = value;
       btnPrevIsDisabled = value;
-    }
+    };
 
-    function btnNextToggle(value) {
-      nextWorks.disabled = value;
+    const btnNextToggle = function(value) {
+      btnNextWorks.disabled = value;
       btnNextIsDisabled = value;
-    }
+    };
 
     if(quantityOfColumns > quantityOfVisibleElems / 2) {
       btnPrevToggle(true);
@@ -64,65 +64,100 @@ export default (() => {
       }
     }
     quantityOfVisibleElems = 0;
-  }
+  };
 
-  function resetTransform() {
+  const resetShift = function() {
     quantityOfShifts = 0;
     btnToggle();
     works.style.transform = 'none';
-  }
+  };
 
-  function alignContent() {
+  const alignContent = function() {
     if(quantityOfColumns > quantityOfVisibleElems / 2) {
       works.style.alignContent = 'center';
     } else {
       works.style.alignContent = 'flex-start';
     }
 
-    if(quantityOfColumns >= quantityOfVisibleElems) {
+    if(quantityOfColumns >= quantityOfVisibleElems / 2 && quantityOfColumns !== 1) {
       works.style.flexDirection = 'row';
     } else {
       works.style.flexDirection = 'column';
     }
-  }
+  };
 
-  function countVisibleElems() {
-    for(let i = 0; i < worksEl.length; i++) {
+  const countVisibleElems = function() {
+    for(const el of worksEl) {
       if(currentFilter === 'all') {
         quantityOfVisibleElems = worksEl.length;
         break;
-      } else if(currentFilter === worksEl[i].getAttribute('data-category')) {
+      } else if(currentFilter === el.getAttribute('data-category')) {
         quantityOfVisibleElems++;
       }
     }
-  }
+  };
 
-  function transform(sign) {
+  const shift = function(sign) {
+    let currentElWidth;
     countVisibleElems();
-
     sign === '+' ? quantityOfShifts-- : quantityOfShifts++;
     btnToggle();
-    let currentElWidth;
-    for(let i = 0; i < worksEl.length; i++) {
+    for(const el of worksEl) {
       if(currentFilter === 'all') {
-        currentElWidth = worksEl[i].offsetWidth;
+        currentElWidth = el.offsetWidth;
         break;
-      } else if(currentFilter === worksEl[i].getAttribute('data-category')) {
-        currentElWidth = worksEl[i].offsetWidth;
+      } else if(currentFilter === el.getAttribute('data-category')) {
+        currentElWidth = el.offsetWidth;
         break;
       }
     }
     const translateValue = (currentElWidth + offset) * quantityOfShifts;
     works.style.transform = `translateX(-${translateValue}px)`;
-  }
+  };
 
-  function touchStart(e) {
+  const applyFilter = function(e) {
+    if(e.target && e.target.tagName === 'BUTTON') {
+      currentFilter = e.target.getAttribute('data-category');
+      works.classList.add('works-toggle-anim');
+      for(const el of worksEl) {
+        if(currentFilter === 'all') {
+          el.style.display = 'block';
+        } else if(currentFilter === el.getAttribute('data-category')) {
+          el.style.display = 'block';
+        } else {
+          el.style.display = 'none';
+        }
+      }
+      setTimeout(() => {
+        works.classList.remove('works-toggle-anim');
+      }, 300);
+      countVisibleElems();
+      alignContent();
+      resetShift();
+    }
+  };
+
+  const tabKeyPress = function(e) {
+    const secondLink = worksLinks[quantityOfShifts * 2];
+    const secondToLastLink = worksLinks[quantityOfColumns * 2 - 1 + (quantityOfShifts * 2)];
+    const tabKeyCode = 9;
+    let isTabPress = false;
+    e.keyCode === tabKeyCode ? isTabPress = true : isTabPress = false;
+    if(isTabPress && secondLink === document.activeElement && !btnPrevIsDisabled) {
+      shift('+');
+    }
+    if(isTabPress && secondToLastLink === document.activeElement && !btnNextIsDisabled) {
+      shift('-');
+    }
+  };
+
+  const touchStart = function(e) {
     const firstTouch = e.touches[0];
     xDown = firstTouch.clientX;
     yDown = firstTouch.clientY;
-  }
+  };
 
-  function touchMove(e) {
+  const touchMove = function(e) {
     if(!xDown || !yDown) {
       return;
     }
@@ -134,50 +169,14 @@ export default (() => {
 
     if(Math.abs(xDiff) > Math.abs(yDiff)) {
       if(xDiff > 0 && btnNextIsDisabled === false) {
-        transform('-');
+        shift('-');
       } else if(xDiff < 0 && btnPrevIsDisabled === false) {
-        transform('+');
+        shift('+');
       }
     }
     xDown = null;
     yDown = null;
-  }
-
-  function applyFilter(e) {
-    if(e.target && e.target.tagName === 'BUTTON') {
-      currentFilter = e.target.getAttribute('data-category');
-      works.classList.add('works-toggle-anim');
-      for(let i = 0; i < worksEl.length; i++) {
-        if(currentFilter === 'all') {
-          worksEl[i].style.display = 'block';
-        } else if(currentFilter === worksEl[i].getAttribute('data-category')) {
-          worksEl[i].style.display = 'block';
-        } else {
-          worksEl[i].style.display = 'none';
-        }
-      }
-      setTimeout(() => {
-        works.classList.remove('works-toggle-anim');
-      }, 300);
-      countVisibleElems();
-      alignContent();
-      resetTransform();
-    }
-  }
-
-  function tabKeyPress(e) {
-    const secondLink = worksLinks[quantityOfShifts * 2];
-    const secondToLastLink = worksLinks[quantityOfColumns * 2 - 1 + (quantityOfShifts * 2)];
-    const tabKeyCode = 9;
-    let isTabPress = false;
-    e.keyCode === tabKeyCode ? isTabPress = true : isTabPress = false;
-    if(isTabPress && secondLink === document.activeElement && !btnPrevIsDisabled) {
-      transform('+');
-    }
-    if(isTabPress && secondToLastLink === document.activeElement && !btnNextIsDisabled) {
-      transform('-');
-    }
-  }
+  };
 
   window.addEventListener('load', () => {
     checkWidth();
@@ -187,21 +186,21 @@ export default (() => {
   });
 
   window.addEventListener('resize', () => {
-    countVisibleElems();
     checkWidth();
+    countVisibleElems();
     alignContent();
-    resetTransform();
+    resetShift();
   });
 
-  window.addEventListener('keyup', (e) => tabKeyPress(e)); // Accessibility
+  window.addEventListener('keyup', e => tabKeyPress(e)); // Accessibility
+
+  btnFilters.addEventListener('click', e => applyFilter(e));
+
+  btnPrevWorks.addEventListener('click', () => shift('+'));
+
+  btnNextWorks.addEventListener('click', () => shift('-'));
 
   works.addEventListener('touchstart', touchStart);
 
   works.addEventListener('touchmove', touchMove);
-
-  btnFilters.addEventListener('click', (e) => applyFilter(e));
-
-  prevWorks.addEventListener('click', () => transform('+'));
-
-  nextWorks.addEventListener('click', () => transform('-'));
 })();

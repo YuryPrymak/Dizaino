@@ -14,9 +14,9 @@
   > .title {
     max-width: 800px;
     position: relative;
+    color: $color-title;
     @include fontSize($fs-title);
     font-family: $pavanam;
-    color: $color-title;
     text-align: center;
     text-transform: uppercase;
 
@@ -52,9 +52,9 @@
   > .description {
     max-width: 800px;
     margin-bottom: 40px;
+    color: $color-description;
     @include fontSize($fs-description, null, $fs-description-xs);
     font-family: $open-sans;
-    color: $color-description;
     text-align: center;
   }
 
@@ -87,8 +87,8 @@
         padding-top: 70%;
 
         @include media-xs {
-          width: 90%;
-          padding-top: 90%;
+          width: 100%;
+          padding-top: 100%;
         }
 
         img {

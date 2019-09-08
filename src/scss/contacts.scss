@@ -47,11 +47,11 @@
       @include transition(color, .2s, ease-in-out);
 
       &:hover {
-        color: rgb(243, 118, 61);
+        color: #f3763d;
       }
 
       @include focus {
-        color: rgb(243, 118, 61);
+        color: #f3763d;
       }
 
       @include media-sm {
