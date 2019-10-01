@@ -16,7 +16,11 @@ export default (() => {
 
     removeClasses('show');
     slides[curentSlideIndex].classList.add(`${direction}-slide-hide`);
-    curentSlideIndex === 0 ? curentSlideIndex = slidesQuantity - 1 : curentSlideIndex--;
+    if(direction === 'prev') {
+      curentSlideIndex === 0 ? curentSlideIndex = slidesQuantity - 1 : curentSlideIndex--;
+    } else if(direction === 'next') {
+      curentSlideIndex === slidesQuantity - 1 ? curentSlideIndex = 0 : curentSlideIndex++;
+    }
     removeClasses('hide');
     slides[curentSlideIndex].classList.add(`${direction}-slide-show`);
   };
